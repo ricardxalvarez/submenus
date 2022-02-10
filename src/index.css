@@ -1,13 +1,200 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: roboto;
+}
+.hero {
+  background-image: url(https://stimg.cardekho.com/images/carexteriorimages/930x620/Lamborghini/Aventador/6721/Lamborghini-Aventador-SVJ/1621849426405/front-left-side-47.jpg);
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+  z-index: -2;
+}
+.items-container {
+  display: flex;
+  margin-left: 15vw;
+  flex-direction: column;
+}
+.items-container h1 {
+  color: aliceblue;
+  font-size: 2.5rem;
+}
+.items-container button {
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+.hero::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.363);
+  z-index: -1;
+}
+.nav {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  width: 100%;
+}
+.nav-list {
+  display: flex;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-list li button {
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 0.1rem;
+  color: white;
+  border: none;
+  white-space: nowrap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.toggle-btn {
+  background: none;
+  font-size: 25px;
+  float: right;
+  margin: 1rem;
+  border: none;
+  color: white;
+  display: none;
+  animation-name: animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+
+.sidebar {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  display: none;
+  position: absolute;
+  top: 0;
+}
+.sidebar-closed {
+  display: none;
+}
+.nav-header {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.sidebar-links h4,
+.links-container a {
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.sidebar h4 {
+  color: white;
+}
+.links-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.links-container a {
+  color: rgb(122, 122, 122);
+  margin: 5px;
+  font-weight: 900;
+}
+.links-container a:hover {
+  color: brown;
+}
+.closed {
+  display: none;
+}
+.submenu {
+  display: flex;
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+}
+.submenu::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.submenu-container {
+  background: black;
+  border-radius: 10px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.submenu-container h4 {
+  text-transform: capitalize;
+}
+.links-center {
+  display: flex;
+  flex-direction: row;
+}
+.links-center p {
+  text-transform: capitalize;
+  margin: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: rgb(122, 122, 122);
+}
+.links-center p:hover {
+  color: brown;
+}
+.submenu-closed {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .toggle-btn {
+    display: initial;
+  }
+  .nav-list {
+    display: none;
+  }
+  .items-container {
+    margin-left: 10vw;
+  }
+  .sidebar {
+    display: flex;
+  }
+}
+
+@keyframes animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
